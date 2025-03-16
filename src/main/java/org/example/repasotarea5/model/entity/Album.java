@@ -2,8 +2,11 @@ package org.example.repasotarea5.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDate;
 
 @Document(collection = "albums") // Esta anotación se utiliza para indicar que esta clase es un documento de Spring
 public class Album {
@@ -19,7 +22,7 @@ public class Album {
 
     @JsonProperty("data_lanzamento") // Esta anotación se utiliza para indicar que el atributo es un campo JSON
     @JsonFormat(pattern = "yyyy-MM-dd") // Esta anotación se utiliza para indicar el formato de la fecha
-    private String data_lanzamento; // Se declara una variable de tipo LocalDate llamada data_lanzamento
+    private LocalDate data_lanzamento; // Se declara una variable de tipo LocalDate llamada data_lanzamento
 
     @JsonProperty("puntuacion") // Esta anotación se utiliza para indicar que el atributo es un campo JSON
     private float puntuacion; // Se declara una variable de tipo float llamada puntuacion
@@ -33,7 +36,7 @@ public class Album {
      * @param data_lanzamento la fecha de lanzamiento del album
      * @param puntuacion      la puntuacion del album
      */
-    public Album(String id, String grupo_id, String titulo, String data_lanzamento, float puntuacion) {
+    public Album(String id, String grupo_id, String titulo, LocalDate data_lanzamento, float puntuacion) {
         this.id = id;
         this.grupo_id = grupo_id;
         this.titulo = titulo;
@@ -68,11 +71,11 @@ public class Album {
         this.titulo = titulo;
     }
 
-    public String getData_lanzamento() {
+    public LocalDate getData_lanzamento() {
         return data_lanzamento;
     }
 
-    public void setData_lanzamento(String data_lanzamento) {
+    public void setData_lanzamento(LocalDate data_lanzamento) {
         this.data_lanzamento = data_lanzamento;
     }
 
