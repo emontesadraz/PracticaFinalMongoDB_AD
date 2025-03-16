@@ -1,7 +1,6 @@
 package org.example.repasotarea5.service;
 
 import org.example.repasotarea5.exceptions.IdException;
-import org.example.repasotarea5.model.dto.GrupoDTO;
 import org.example.repasotarea5.model.entity.Grupo;
 import org.example.repasotarea5.repository.GrupoRepository;
 import org.springframework.stereotype.Service;
@@ -20,11 +19,9 @@ public class MongoGrupoService {
 
     /**
      * Metodo que crea un grupoDTO en la base de datos
-     * @param grupoDTO
+     * @param grupo
      */
-    public void crearGrupo(GrupoDTO grupoDTO) {
-        Grupo grupo = new Grupo(grupoDTO.getId(), grupoDTO.getNome(),
-                grupoDTO.getXenero(), grupoDTO.getDataFormacion());
+    public void crearGrupo(Grupo grupo) {
         grupoRepository.save(grupo);
     }
 
@@ -59,17 +56,17 @@ public class MongoGrupoService {
 
     /**
      * Metodo para actualizar un grupo por su id
-     * @param id el id del grupo
-     * @param grupoDTO el grupo con los datos actualizados
+     * @param id el ID del grupo
+     * @param grupo el grupo con los datos actualizados
      */
-    public void updateByIdService(String id, GrupoDTO grupoDTO){
-        Grupo grupo = grupoRepository.findByid(id);
+    public void updateByIdService(String id, Grupo grupo){
+        Grupo nuevoGrupo = grupoRepository.findByid(id);
         if(grupo == null){
             throw new IdException("Este id no existe para actualizar un grupo");
         }
-        grupo.setNome(grupoDTO.getNome());
-        grupo.setXenero(grupoDTO.getXenero());
-        grupo.setDataFormacion(grupoDTO.getDataFormacion());
+        grupo.setNome(nuevoGrupo.getNome());
+        grupo.setXenero(nuevoGrupo.getXenero());
+        grupo.setDataFormacion(nuevoGrupo.getDataFormacion());
         grupoRepository.save(grupo);
     }
 }

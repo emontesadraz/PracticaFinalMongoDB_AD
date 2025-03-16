@@ -1,6 +1,5 @@
 package org.example.repasotarea5.controller;
 
-import org.example.repasotarea5.model.dto.AlbumDTO;
 import org.example.repasotarea5.model.entity.Album;
 import org.example.repasotarea5.service.MongoAlbumService;
 import org.springframework.http.ResponseEntity;
@@ -21,13 +20,13 @@ public class MongoAlbumRestController {
 
     /**
      * Metodo post para crear el album
-     * @param albumDTO el abum dto
+     * @param album el abum dto
      * @return un mensaje indicando si se creo o no el album
      */
     @PostMapping("/crear") // Esta anotación se utiliza para mapear solicitudes HTTP POST a métodos de controlador y se aplica a un método de controlador
-    public ResponseEntity<String> crearAlbumController(@RequestBody AlbumDTO albumDTO) { // Método que recibe un objeto de tipo Album y devuelve un objeto de tipo ResponseEntity<String>
+    public ResponseEntity<String> crearAlbumController(@RequestBody Album album) { // Método que recibe un objeto de tipo Album y devuelve un objeto de tipo ResponseEntity<String>
         try{ // Inicio del bloque try
-            mongoAlbumService.crearAlbum(albumDTO); // Se llama al método crearAlbum de la clase MongoAlbumService
+            mongoAlbumService.crearAlbum(album); // Se llama al método crearAlbum de la clase MongoAlbumService
         }catch (Exception e){ // Inicio del bloque catch
             return ResponseEntity.badRequest().body(e.getMessage()); // Se devuelve un objeto de tipo ResponseEntity con un mensaje de error
         } // Fin del bloque catch

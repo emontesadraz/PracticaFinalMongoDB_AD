@@ -1,6 +1,5 @@
 package org.example.repasotarea5.controller;
 
-import org.example.repasotarea5.model.dto.GrupoDTO;
 import org.example.repasotarea5.model.entity.Grupo;
 import org.example.repasotarea5.service.MongoGrupoService;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +19,13 @@ public class MongoGrupoRestController {
 
     /**
      * Metodo para crear un nuevo documento de tipo "Grupo" en MongoDB.
-     * @param grupoDTO El objeto de tipo Grupo que contiene los datos del grupo a crear.
+     * @param grupo El objeto de tipo Grupo que contiene los datos del grupo a crear.
      * @return ResponseEntity con el estado de la operación y un mensaje correspondiente.
      */
     @PostMapping("/crear")
-    public ResponseEntity<String> crearDocumentoMongo(@RequestBody GrupoDTO grupoDTO) {
+    public ResponseEntity<String> crearDocumentoMongo(@RequestBody Grupo grupo) {
         try{
-            mongoGrupoService.crearGrupo(grupoDTO);
+            mongoGrupoService.crearGrupo(grupo);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -87,13 +86,13 @@ public class MongoGrupoRestController {
     /**
      * Metodo para actualizar un grupo de la base de datos por su ID.
      * @param id El identificador único del grupo que se desea actualizar.
-     * @param grupoDTO El objeto de tipo Grupo que contiene los datos del grupo a actualizar.
+     * @param grupo El objeto de tipo Grupo que contiene los datos del grupo a actualizar.
      * @return ResponseEntity con el estado de la operación y un mensaje correspondiente.
      */
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<String> actualizarGrupoMongo(@PathVariable String id, @RequestBody GrupoDTO grupoDTO){
+    public ResponseEntity<String> actualizarGrupoMongo(@PathVariable String id, @RequestBody Grupo grupo){
         try{
-            mongoGrupoService.updateByIdService(id, grupoDTO);
+            mongoGrupoService.updateByIdService(id, grupo);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
