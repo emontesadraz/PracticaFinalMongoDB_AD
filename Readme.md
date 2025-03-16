@@ -62,10 +62,10 @@ Crearemos los siguientes paquetes para organizar nuestro código:
 
 1. **Paquete Config**
     - *MongoConfig:* Clase de configuración de MongoDB. Se encarga de establecer la conexión con la base de datos.
-        [Enlace al código de MongoConfig](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/config/MongoConfig.java)
+        [Enlace al código de MongoConfig](/src/main/java/org/example/repasotarea5/config/MongoConfig.java)
    
     - *SwaggerConfig:* Clase de configuración de Swagger. Se encarga de configurar la documentación de la API REST.
-        [Enlace al código de SwaggerConfig](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/config/SwaggerConfig.java)
+        [Enlace al código de SwaggerConfig](/src/main/java/org/example/repasotarea5/config/SwaggerConfig.java)
 
 **Cosas a tener en cuenta:**
 
@@ -78,10 +78,10 @@ método de inicialización de bean.
 
 2. **Paquete Controller**
     - *MongoController:* Clase que define los endpoints de la API REST y maneja las peticiones HTTP.
-        [Enlace al código de MongoController](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/controller/MongoAlbumRestController.java)
+        [Enlace al código de MongoController](/src/main/java/org/example/repasotarea5/controller/MongoAlbumRestController.java)
    
     - *SwaggerController:* Clase que define los endpoints de la API REST y maneja las peticiones HTTP.
-        [Enlace al código de SwaggerController](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/controller/MongoGrupoRestController.java)
+        [Enlace al código de SwaggerController](/src/main/java/org/example/repasotarea5/controller/MongoGrupoRestController.java)
 **Cosas a tener en cuenta:**
 
 ```@RestController```: Esta anotación se utiliza para definir un controlador REST en Spring.
@@ -105,16 +105,16 @@ método de inicialización de bean.
 3. **Paquete Model**
     1. **Paquete entity**
        - *Album:* Representa un álbum musical con los atributos id, título, artista y año de lanzamiento.
-           [Enlace al código de Album](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/entity/Album.java)
+           [Enlace al código de Album](/src/main/java/org/example/repasotarea5/model/entity/Album.java)
    
        - *Grupo:* Representa un grupo musical con los atributos id, nombre, xenero y dataFormacion
-           [Enlace al código de Grupo](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/entity/Grupo.java)
+           [Enlace al código de Grupo](/src/main/java/org/example/repasotarea5/model/entity/Grupo.java)
     2. **Paquete dto**
        - *AlbumDTO:* Representa un álbum musical con los atributos título, artista y año de lanzamiento.
-           [Enlace al código de AlbumDTO](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/dto/AlbumDTO.java)
+           [Enlace al código de AlbumDTO](/src/main/java/org/example/repasotarea5/model/dto/AlbumDTO.java)
    
        - *GrupoDTO:* Representa un grupo musical con los atributos nombre, xenero y dataFormacion.
-           [Enlace al código de GrupoDTO](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/dto/GrupoDTO.java)
+           [Enlace al código de GrupoDTO](/src/main/java/org/example/repasotarea5/model/dto/GrupoDTO.java)
 
     ### **PARA QUE SIRVE DTO?**
     DTO (Data Transfer Object) sirve para la transferencia de datos sin exponer directamente la entidad de la base de datos.
@@ -132,15 +132,15 @@ método de inicialización de bean.
 
 4. **Paquete Repository**
     - *AlbumRepository:* Interfaz que extiende de MongoRepository para interactuar con la colección de álbumes.
-        [Enlace al código de AlbumRepository](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/repository/AlbumRepository.java)
+        [Enlace al código de AlbumRepository](/src/main/java/org/example/repasotarea5/repository/AlbumRepository.java)
    
     - *GrupoRepository:* Interfaz que extiende de MongoRepository para interactuar con la colección de grupos.
-        [Enlace al código de GrupoRepository](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/repository/GrupoRepository.java)
+        [Enlace al código de GrupoRepository](/src/main/java/org/example/repasotarea5/repository/GrupoRepository.java)
 
 
 5. **Paquete Service**
     - *MongoAlbumService:* Clase que contiene la lógica para la gestión de álbumes.
-        [Enlace al código de MongoAlbumService](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/service/MongoAlbumService.java)
+        [Enlace al código de MongoAlbumService](/src/main/java/org/example/repasotarea5/service/MongoAlbumService.java)
    
     - *MongoGrupoService:* Clase que contiene la lógica de negocio para la gestión de grupos.
-        [Enlace al código de MongoGrupoService](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/service/MongoGrupoService.java)
+        [Enlace al código de MongoGrupoService](/src/main/java/org/example/repasotarea5/service/MongoGrupoService.java)
