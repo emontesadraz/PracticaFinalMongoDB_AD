@@ -1,7 +1,7 @@
 package org.example.repasotarea5.service;
 
 import org.example.repasotarea5.exceptions.IdException;
-import org.example.repasotarea5.model.Album;
+import org.example.repasotarea5.model.entity.Album;
 import org.example.repasotarea5.repository.AlbumRepository;
 import org.springframework.stereotype.Service;
 

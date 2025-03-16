@@ -1,6 +1,6 @@
 package org.example.repasotarea5.controller;
 
-import org.example.repasotarea5.model.Album;
+import org.example.repasotarea5.model.entity.Album;
 import org.example.repasotarea5.service.MongoAlbumService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

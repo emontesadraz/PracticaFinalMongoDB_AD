@@ -1,11 +1,9 @@
-package org.example.repasotarea5.model;
+package org.example.repasotarea5.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.LocalDate;
 
 @Document(collection = "albums") // Esta anotación se utiliza para indicar que esta clase es un documento de Spring
 public class Album {

@@ -1,9 +1,12 @@
-package org.example.repasotarea5.model;
+package org.example.repasotarea5.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDate;
 
 @Document(collection = "grupos")
 public class Grupo {
@@ -19,7 +22,7 @@ public class Grupo {
 
     @JsonProperty("dataFormacion") // Esta anotación se utiliza para indicar que el atributo es un campo JSON
     @JsonFormat(pattern = "yyyy-MM-dd") // Esta anotación se utiliza para indicar el formato de la fecha
-    private String dataFormacion;
+    private LocalDate dataFormacion;
 
 
     /**
@@ -29,7 +32,7 @@ public class Grupo {
      * @param xenero el género del grupo
      * @param dataFormacion la fecha de formacion del grupo
      */
-    public Grupo(String id, String nome, String xenero, String dataFormacion) {
+    public Grupo(String id, String nome, String xenero, LocalDate dataFormacion) {
         this.id = id;
         this.nome = nome;
         this.xenero = xenero;
@@ -60,11 +63,11 @@ public class Grupo {
         this.xenero = xenero;
     }
 
-    public String getDataFormacion() {
+    public LocalDate getDataFormacion() {
         return dataFormacion;
     }
 
-    public void setDataFormacion(String dataFormacion) {
+    public void setDataFormacion(LocalDate dataFormacion) {
         this.dataFormacion = dataFormacion;
     }
 }

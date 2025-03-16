@@ -1,9 +1,12 @@
 package org.example.repasotarea5.controller;
 
-import org.example.repasotarea5.model.Grupo;
+import org.example.repasotarea5.model.dto.GrupoDTO;
+import org.example.repasotarea5.model.entity.Grupo;
 import org.example.repasotarea5.service.MongoGrupoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/grupo")
@@ -17,17 +20,35 @@ public class MongoGrupoRestController {
 
     /**
      * Metodo para crear un nuevo documento de tipo "Grupo" en MongoDB.
-     * @param grupo El objeto de tipo Grupo que contiene los datos del grupo a crear.
+     * @param grupoDTO El objeto de tipo Grupo que contiene los datos del grupo a crear.
      * @return ResponseEntity con el estado de la operación y un mensaje correspondiente.
      */
     @PostMapping("/crear")
-    public ResponseEntity<String> crearDocumentoMongo(@RequestBody Grupo grupo) {
+    public ResponseEntity<String> crearDocumentoMongo(@RequestBody GrupoDTO grupoDTO) {
         try{
-            mongoGrupoService.crearGrupo(grupo);
+            mongoGrupoService.crearGrupo(grupoDTO);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().body("Documento creado correctamente");
+    }
+
+    /**
+     * Metodo para listar todos los grupos almacenados en MongoDB.
+     *
+     * @return ResponseEntity con la lista de grupos o un error en caso de fallo.
+     */
+    @GetMapping("/listar")
+    public ResponseEntity<List<Grupo>> listarGruposMongo(){
+        try{
+            List<Grupo> grupoList = mongoGrupoService.getListGrupo();
+            if(grupoList.isEmpty()){
+                return ResponseEntity.badRequest().body(null);
+            }
+            return ResponseEntity.ok().body(grupoList);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(null);
+        }
     }
 
     /**
@@ -66,13 +87,13 @@ public class MongoGrupoRestController {
     /**
      * Metodo para actualizar un grupo de la base de datos por su ID.
      * @param id El identificador único del grupo que se desea actualizar.
-     * @param grupo El objeto de tipo Grupo que contiene los datos del grupo a actualizar.
+     * @param grupoDTO El objeto de tipo Grupo que contiene los datos del grupo a actualizar.
      * @return ResponseEntity con el estado de la operación y un mensaje correspondiente.
      */
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<String> actualizarGrupoMongo(@PathVariable String id, @RequestBody Grupo grupo){
+    public ResponseEntity<String> actualizarGrupoMongo(@PathVariable String id, @RequestBody GrupoDTO grupoDTO){
         try{
-            mongoGrupoService.updateByIdService(id, grupo);
+            mongoGrupoService.updateByIdService(id, grupoDTO);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

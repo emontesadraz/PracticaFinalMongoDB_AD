@@ -1,6 +1,6 @@
 package org.example.repasotarea5.repository;
 
-import org.example.repasotarea5.model.Grupo;
+import org.example.repasotarea5.model.entity.Grupo;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

@@ -103,11 +103,22 @@ método de inicialización de bean.
 ```@DeleteMapping```: Esta anotación se utiliza para mapear solicitudes HTTP DELETE a métodos de controlador específicos.
 
 3. **Paquete Model**
-    - *Album:* Representa un álbum musical con los atributos id, título, artista y año de lanzamiento.
-        [Enlace al código de Album](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/Album.java)
+    1. **Paquete entity**
+       - *Album:* Representa un álbum musical con los atributos id, título, artista y año de lanzamiento.
+           [Enlace al código de Album](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/entity/Album.java)
    
-    - *Grupo:* Representa un grupo musical con los atributos id, nombre, xenero y dataFormacion
-        [Enlace al código de Grupo](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/Grupo.java)
+       - *Grupo:* Representa un grupo musical con los atributos id, nombre, xenero y dataFormacion
+           [Enlace al código de Grupo](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/entity/Grupo.java)
+    2. **Paquete dto**
+       - *AlbumDTO:* Representa un álbum musical con los atributos título, artista y año de lanzamiento.
+           [Enlace al código de AlbumDTO](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/dto/AlbumDTO.java)
+   
+       - *GrupoDTO:* Representa un grupo musical con los atributos nombre, xenero y dataFormacion.
+           [Enlace al código de GrupoDTO](/Users/estebanmontes/Desktop/2 DAM/AD/SegundoTrimestre/RepasoMongo/RepasoTarea5/src/main/java/org/example/repasotarea5/model/dto/GrupoDTO.java)
+
+    ### **PARA QUE SIRVE DTO?**
+    DTO (Data Transfer Object) sirve para la transferencia de datos sin exponer directamente la entidad de la base de datos.
+    También sirve para transformar datos antes de enviarlos, por ejemplo, cambiar formatos de fecha o agregar campos calculados.
 
 **Cosas a tener en cuenta:**
 
